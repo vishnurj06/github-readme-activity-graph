@@ -3,7 +3,6 @@ import cors from 'cors';
 import { Handlers } from './handlers';
 
 const app: Application = express();
-const port = process.env.PORT || 5100;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -11,7 +10,8 @@ app.use(cors());
 const handlers = new Handlers();
 
 app.get('/', handlers.getRoot);
-//Get Graph
+
+// Get Graph
 app.get('/graph', handlers.getGraph);
 
 app.get('/data', handlers.getData);
